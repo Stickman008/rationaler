@@ -1,9 +1,11 @@
 import './App.css';
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
-      <p>Test Yarn</p>
+      {/* <p>Main page</p> */}
+      <Header />
     </div>
   );
 }
