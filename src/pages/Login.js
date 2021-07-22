@@ -1,8 +1,28 @@
 import { Button, FormControl, Paper, TextField } from "@material-ui/core";
 import "./LogIn.css";
 import React from "react";
+import { Redirect } from "react";
+import { AuthContext } from "../components/Auth";
+import firebaseConfig from "../config";
 
 function Login() {
+  // const handleSubmit = (e) => {
+  //   e.preventDefalut();
+  //   console.log("ok");
+  //   try {
+  //     firebaseConfig
+  //       .auth()
+  //       .signInWithEmailAndPassword(email.value, password.value);
+  //   } catch (error) {
+  //     alert(error);
+  //   }
+  // }
+
+  // const {currentUser} = useContext(AuthContext);
+  // if(currentUser) {
+  //   return <Redirect to="../App" />
+  // }
+
   return (
     <div className="main__login">
       <Paper elevation={10} className="main__paper">

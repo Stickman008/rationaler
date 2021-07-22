@@ -5,13 +5,15 @@
   
   .main__paper {
     padding: 20px;
-    height: 70vh;
+    height: 50vh;
     width: 400px;
     margin: 60px auto;
   }
   
   .main__form {
       margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
   }
   
   .main__form > h1 {
