@@ -1,0 +1,20 @@
+.main__login {
+    min-height: 500px;
+    margin: auto;
+  }
+  
+  .main__paper {
+    padding: 20px;
+    height: 70vh;
+    width: 400px;
+    margin: 60px auto;
+  }
+  
+  .main__form {
+      margin-bottom: 10px;
+  }
+  
+  .main__form > h1 {
+    text-align: center;
+  }
+  

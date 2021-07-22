@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    padding: 20px 20px; 
+    justify-content: space-between;
+    position: sticky;
+    z-index: 100;
+}
+
+.header__icon {
+    transform: scale(1.4);
+    padding-right: 15px
+}
+
+.header__left{
+    display: flex;
+}
+
+.header__center {
+    display: flex;
+    justify-content: center;
+}
+
+.header__option {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+    cursor: pointer;
+}
+
+.header__right {
+    display: flex;
+}
+
+.header__info {
+    display: flex;
+}
