@@ -1,13 +1,15 @@
 import './App.css';
 import Header from './components/Header';
-import Login from './pages/Login';
+import Login from './pages/LogIn';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
     <div className="App">
       {/* <p>Main page</p> */}
       {/* <Header /> */}
-      <Login />
+      {/* <LogIn /> */}
+      <SignUp />
     </div>
   );
 }
