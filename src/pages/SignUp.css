@@ -1,22 +1,27 @@
-.main__login {
-    min-height: 500px;
-    margin: auto;
-  }
-  
-  .main__paper {
-    padding: 20px;
-    height: 50vh;
-    width: 400px;
-    margin: 60px auto;
-  }
-  
-  .main__form {
-      margin-bottom: 10px;
-      display: flex;
-      flex-direction: column;
-  }
-  
-  .main__form > h1 {
-    text-align: center;
-  }
-  
+.main__signup {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.main__paper {
+  text-align: center;
+  padding: 20px;
+  width: 400px;
+  height: 250px;
+}
+
+.main__paper > h1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.main__form {
+
+}
+
+.main__form > Button {
+  margin-top: 20px;
+}
