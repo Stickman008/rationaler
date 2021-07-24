@@ -1,28 +1,31 @@
-import { Button, FormControl, Paper, TextField } from "@material-ui/core";
-import "./LogIn.css";
-import React from "react";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../components/Auth";
 import firebaseConfig from "../config";
+import { Button, Paper, TextField } from "@material-ui/core";
+import "./LogIn.css";
 
 function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
-    e.preventDefalut();
-    console.log("ok");
+    e.preventDefault();
+
     try {
       firebaseConfig
         .auth()
-        .signInWithEmailAndPassword(email.value, password.value);
+        .signInWithEmailAndPassword(email, password);
+      console.log("login complete");
     } catch (error) {
       alert(error);
     }
   };
 
-  // const {currentUser} = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
+  if (currentUser) {
+    return <Redirect to="./dashboard" />;
+  }
 
   return (
     <div className="main__login">
@@ -34,9 +37,9 @@ function LogIn() {
             placeholder="Enter email"
             fullWidth
             required
-            // onInput={(e) => {
-            //   setEmail(e.target.value);
-            // }}
+            onInput={(e) => {
+              setEmail(e.target.value);
+            }}
           />
           <TextField
             label="Password"
@@ -44,17 +47,17 @@ function LogIn() {
             type="password"
             fullWidth
             required
-            // onInput={(e) => {
-            //   setPassword(e.target.value);
-            // }}
+            onInput={(e) => {
+              setPassword(e.target.value);
+            }}
           />
           <Button type="submit" variant="contained" color="primary" fullWidth>
             Sign in
           </Button>
-          <Button type="button" variant="outlined" color="primary" fullWidth>
-            Sign up
-          </Button>
         </form>
+        <Button type="button" variant="outlined" color="primary" fullWidth>
+          Sign up
+        </Button>
       </Paper>
     </div>
   );

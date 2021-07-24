@@ -1,9 +1,8 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import firebaseConfig from "../config";
 import { Paper, TextField, Button } from "@material-ui/core";
 import "./SignUp.css";
-import firebaseConfig from "../config";
 
 function SignUp() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -23,8 +22,7 @@ function SignUp() {
   };
 
   if (currentUser) {
-    console.log("already sign up");
-    return <Redirect to="../App" />;
+    return <Redirect to="./dashboard" />;
   }
 
   return (

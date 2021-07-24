@@ -1,19 +1,30 @@
-/* .main__login {
-  min-height: 500px;
-  margin: auto;
+.main__longin {
+  overflow: hidden;
+  background-color: ghostwhite;
+  position: relative;
+  margin: -10px;
 }
 
-.main__paper {
-  padding: 20px;
-  height: 60vh;
-  width: 400px;
-  margin: 60px auto;
-}
-
-.main__form {
-    margin-bottom: 10px;
-}
-
-.main__form > h1 {
+.main__login__paper {
   text-align: center;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 400px;
+  height: auto;
+}
+
+.main__login__paper > h1 {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* .main__signup__form {
+
 } */
+
+.main__login__form > Button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
