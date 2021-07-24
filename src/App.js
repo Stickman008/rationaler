@@ -10,13 +10,13 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       {/* <p>Main page</p> */}
-      {/* <Header /> */}
+      <Header />
       {/* <LogIn /> */}
       {/* <SignUp /> */}
       {/* <h1>App js</h1> */}
-      <AuthProvider>
+      {/* <AuthProvider>
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -25,7 +25,7 @@ function App() {
             <Route exact path="/signup" component={SignUp} />
           </Switch>
         </Router>
-      </AuthProvider>
+      </AuthProvider> */}
     </div>
   );
 }

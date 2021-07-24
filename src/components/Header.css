@@ -1,19 +1,32 @@
 .header {
     display: flex;
-    padding: 20px 20px; 
-    justify-content: space-between;
+    padding: 10px 25px; 
+    background-color: rgb(241, 241, 241);
     position: sticky;
+    justify-content: space-between;
+    box-shadow: 0px 8px 8px -5px rgba(0, 0, 0, 0.60);
     z-index: 100;
-}
-
-.header__icon {
-    transform: scale(1.4);
-    padding-right: 15px
 }
 
 .header__left{
     display: flex;
+    justify-content: space-evenly;
 }
+
+.header__icon {
+    transform: scale(1.45);
+}
+
+.header__search {
+    display: flex;
+    background-color: white;
+    margin-left: 10px;
+}
+
+.header__searchField {
+
+}
+
 
 .header__center {
     display: flex;
@@ -23,8 +36,16 @@
 .header__option {
     display: flex;
     align-items: center;
-    padding: 0px 20px;
+    padding: 0 15px;
     cursor: pointer;
+}
+
+.header__option > .MuiSvgIcon-root {
+    color: gray;
+}
+
+.header__option:hover > .MuiSvgIcon-root {
+    color: green;
 }
 
 .header__right {
@@ -33,4 +54,9 @@
 
 .header__info {
     display: flex;
+    align-items: center;
+}
+
+.header__info > h3 {
+    margin: auto 10px;
 }

@@ -2,8 +2,8 @@ import React from "react";
 import PollIcon from "@material-ui/icons/Poll";
 import ThumbsUpDownIcon from "@material-ui/icons/ThumbsUpDown";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
+import { Avatar, Button, TextField} from "@material-ui/core";
 import "./Header.css";
-import { Avatar, Button } from "@material-ui/core";
 
 function Header() {
   return (
@@ -12,8 +12,8 @@ function Header() {
       {/* header left */}
       <div className="header__left">
         <PollIcon className="header__icon" fontSize="large" />
-        <div>
-          <input type="text" placeholder="Search" />
+        <div className="header__search">
+          <TextField  className="header__searchField" size="small" placeholder="Search" variant="outlined"/>
         </div>
       </div>
 
@@ -33,7 +33,7 @@ function Header() {
           <Avatar />
           <h3>NAME</h3>
         </div>
-        <Button variant="contained" color="secondary">Logout</Button>
+        <Button size="small" variant="contained" color="secondary">Logout</Button>
       </div>
     </div>
   );
