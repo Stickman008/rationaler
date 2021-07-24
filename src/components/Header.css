@@ -1,16 +1,23 @@
 .header {
     display: flex;
-    padding: 10px 25px; 
+    padding: 10px 25px;
     background-color: rgb(241, 241, 241);
     position: sticky;
     justify-content: space-between;
     box-shadow: 0px 8px 8px -5px rgba(0, 0, 0, 0.60);
     z-index: 100;
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .header__left{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 .header__icon {
@@ -19,12 +26,25 @@
 
 .header__search {
     display: flex;
-    background-color: white;
     margin-left: 10px;
+    align-items: center;
 }
 
 .header__searchField {
+    background-color: white;
+}
 
+.header__search > .MuiSvgIcon-root {
+    color: black;
+}
+
+.header__search:hover > .MuiSvgIcon-root {
+    color: lightskyblue;
+}
+
+.header__searchButton {
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 
