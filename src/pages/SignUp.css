@@ -1,27 +1,29 @@
 .main__signup {
   overflow: hidden;
-  display: flex;
-  align-items: center;
+  background-color: ghostwhite;
+  position: relative;
+  margin: -10px;
 }
 
-.main__paper {
+.main__signup__paper {
   text-align: center;
   padding: 20px;
+  margin: 20px auto;
   width: 400px;
   height: 250px;
 }
 
-.main__paper > h1 {
+.main__signup__paper > h1 {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.main__form {
+/* .main__signup__form {
 
-}
+} */
 
-.main__form > Button {
+.main__signup__form > Button {
   margin-top: 20px;
 }

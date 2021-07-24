@@ -26,8 +26,8 @@ function LogIn() {
 
   return (
     <div className="main__login">
-      <Paper elevation={10} className="main__paper">
-        <form className="main__form" onSubmit={handleSubmit}>
+      <Paper elevation={10} className="main__login__paper">
+        <form className="main__login__form" onSubmit={handleSubmit}>
           <h1>Sign in</h1>
           <TextField
             label="Email"

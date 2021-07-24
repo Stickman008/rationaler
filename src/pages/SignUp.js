@@ -29,9 +29,9 @@ function SignUp() {
 
   return (
     <div className="main__signup">
-      <Paper elevation={10} className="main__paper">
+      <Paper elevation={10} className="main__signup__paper">
         <h1>Sign Up</h1>
-        <form onSubmit={handleSubmit} className="main__form">
+        <form onSubmit={handleSubmit} className="main__signup__form">
           <TextField
             label="Email"
             placeholder="Enter email"
