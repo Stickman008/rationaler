@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "./components/Auth";
 import Header from "./components/Header";
-import LogIn from "./pages/LogIn";
+import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import DashBoard from "./pages/DashBoard";
@@ -13,7 +13,7 @@ function App() {
     <div className="app">
       {/* <p>Main page</p> */}
       <Header />
-      {/* <LogIn /> */}
+      {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <h1>App js</h1> */}
       {/* <AuthProvider>

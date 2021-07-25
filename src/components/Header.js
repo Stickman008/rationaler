@@ -1,15 +1,13 @@
 import React from "react";
+import { Avatar, Button, TextField} from "@material-ui/core";
 import PollIcon from "@material-ui/icons/Poll";
+import Search from "@material-ui/icons/Search";
 import ThumbsUpDownIcon from "@material-ui/icons/ThumbsUpDown";
 import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
-import SearchIcon from '@material-ui/icons/Search';
-import { Avatar, Button, TextField} from "@material-ui/core";
 import "./Header.css";
-import Search from "@material-ui/icons/Search";
 
 function Header() {
   return (
-    // <h1>Header</h1>
     <div className="header">
       {/* header left */}
       <div className="header__left">

@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import { AuthContext } from "../components/Auth";
 import firebaseConfig from "../config";
 import { Button, Paper, TextField } from "@material-ui/core";
-import "./LogIn.css";
+import "./Login.css";
 
 function LogIn() {
   const [email, setEmail] = useState("");
