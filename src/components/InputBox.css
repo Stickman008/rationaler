@@ -28,8 +28,9 @@
 .inputBox__form__center {
   display: flex;
   align-items: center;
-  margin-top: 8px;
+  /* margin-top: 8px; */
 }
+
 
 .inputBox__form__bottom {
   margin-top: 8px;
@@ -38,4 +39,5 @@
 }
 
 .inputBox__form__bottom > Button {
+  background-color: green;
 }

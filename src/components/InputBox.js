@@ -1,16 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import { Button, Paper, TextField, IconButton } from "@material-ui/core";
 import ImageIcon from "@material-ui/icons/Image";
 import "./InputBox.css";
 
+function showImage(file) {
+  let image = null;
+  return <img className="inputBox__image" src={image} />
+}
+
 function InputBox() {
+  const [uploadImage, setUploadImage] = useState(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Post");
   };
 
-  const handleUploadImage = (e) => {
-    console.log("Upload");
+  const fileSelectedHandler= (e) => {
+    console.log(e.target.files[0]);
+    setUploadImage(e.target.files[0]);
   };
 
   return (
@@ -28,12 +36,15 @@ function InputBox() {
             <IconButton
               type="file"
               variant="contained"
+              component="label"
               style={{ marginLeft: 10 }}
-              onClick={handleUploadImage}
+              size="medium"
             >
-              <ImageIcon size="small" />
+              <ImageIcon style={{width: 40, height: 40}} />
+              <input type="file" onChange={fileSelectedHandler} hidden />
             </IconButton>
           </div>
+          {uploadImage ? showImage(uploadImage): null}
           <div className="inputBox__form__center">
             <TextField
               variant="outlined"
