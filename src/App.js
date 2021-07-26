@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import DashBoard from "./pages/DashBoard";
+import Feed from "./components/Feed";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <div className="app">
       {/* <p>Main page</p> */}
       <Header />
+      <Feed />
       {/* <Login /> */}
       {/* <SignUp /> */}
       {/* <h1>App js</h1> */}
@@ -21,7 +23,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/dashboard" component={DashBoard} />
-            <Route exact path="/login" component={LogIn} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
           </Switch>
         </Router>

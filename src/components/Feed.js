@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
+import InputBox from "./InputBox";
 
 function Feed() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return <div>
+      <InputBox />
+  </div>;
 }
 
-export default Feed
+export default Feed;

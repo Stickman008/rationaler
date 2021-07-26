@@ -8,16 +8,20 @@ function SignUp() {
   const [currentUser, setCurrentUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(email, password);
-
-    try {
-      firebaseConfig.auth().createUserWithEmailAndPassword(email, password);
-      setCurrentUser(true);
-    } catch (error) {
-      alert(error);
+    if (password !== passwordConfirm) {
+      alert("password is not equal");
+    } else {
+      try {
+        firebaseConfig.auth().createUserWithEmailAndPassword(email, password);
+        setCurrentUser(true);
+      } catch (error) {
+        alert(error);
+      }
     }
   };
 
@@ -47,6 +51,16 @@ function SignUp() {
             required
             onInput={(e) => {
               setPassword(e.target.value);
+            }}
+          />
+          <TextField
+            label="Password"
+            placeholder="Enter password"
+            type="password"
+            fullWidth
+            required
+            onInput={(e) => {
+              setPasswordConfirm(e.target.value);
             }}
           />
           <Button type="submit" variant="contained" color="primary" fullWidth>

@@ -21,20 +21,20 @@ function Header() {
       {/* header center */}
       <div className="header__center">
         <div className="header__option">
-          <ThumbsUpDownIcon fontSize="large" />
+          <ThumbsUpDownIcon fontSize="medium" />
         </div>
         <div className="header__option">
-          <QuestionAnswerIcon fontSize="large" />
+          <QuestionAnswerIcon fontSize="medium" />
         </div>
       </div>
 
       {/* header right */}
       <div className="header__right">
         <div className="header__info">
-          <Avatar />
+          <Avatar className="header__avatar" />
           <h3>NAME</h3>
         </div>
-        <Button size="small" variant="contained" color="secondary">Logout</Button>
+        <Button variant="contained" color="secondary">Logout</Button>
       </div>
     </div>
   );

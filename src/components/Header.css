@@ -1,82 +1,81 @@
 .header {
-    display: flex;
-    padding: 10px 25px;
-    background-color: rgb(241, 241, 241);
-    position: sticky;
-    justify-content: space-between;
-    box-shadow: 0px 8px 8px -5px rgba(0, 0, 0, 0.60);
-    z-index: 100;
+  display: flex;
+  padding: 8px 25px;
+  background-color: rgb(241, 241, 241);
+  position: sticky;
+  justify-content: space-between;
+  box-shadow: 0px 8px 8px -5px rgba(0, 0, 0, 0.6);
+  z-index: 100;
 
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: -moz-none;
-    -o-user-select: none;
-    user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
 }
 
-.header__left{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.header__left {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .header__icon {
-    transform: scale(1.45);
+  transform: scale(1.45);
 }
 
 .header__search {
-    display: flex;
-    margin-left: 10px;
-    align-items: center;
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
 }
 
 .header__searchField {
-    background-color: white;
+  background-color: white;
 }
 
 .header__search > .MuiSvgIcon-root {
-    color: black;
+  color: black;
 }
 
 .header__search:hover > .MuiSvgIcon-root {
-    color: lightskyblue;
+  color: lightskyblue;
 }
 
 .header__searchButton {
-    margin-left: 10px;
-    cursor: pointer;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
-
 .header__center {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .header__option {
-    display: flex;
-    align-items: center;
-    padding: 0 15px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
 }
 
 .header__option > .MuiSvgIcon-root {
-    color: gray;
+  color: gray;
 }
 
 .header__option:hover > .MuiSvgIcon-root {
-    color: green;
+  color: green;
 }
 
 .header__right {
-    display: flex;
+  display: flex;
 }
 
 .header__info {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .header__info > h3 {
-    margin: auto 10px;
+  margin: auto 10px;
 }
