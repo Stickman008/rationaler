@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import { useAuth } from "../components/Auth";
 import { Paper, TextField, Button, Typography} from "@material-ui/core";
 import Alert from '@material-ui/lab/Alert';
-import "./SignUp.css";
+import "./Signup.css";
 
 function SignUp() {
   const [loading, setLoading] = useState(false);

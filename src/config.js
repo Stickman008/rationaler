@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 
 const firebaseConfig = firebase.initializeApp({
-  apiKey: "AIzaSyC5vGpsXEt90WWNPqf3krGM-W0oEbbbDoc",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "rationaler-df1f5.firebaseapp.com",
   projectId: "rationaler-df1f5",
   storageBucket: "rationaler-df1f5.appspot.com",

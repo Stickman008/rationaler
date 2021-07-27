@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthProvider } from "./components/Auth";
 import Header from "./components/Header";
 import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+import Signup from "./pages/Signup";
 import Home from "./pages/Home";
 import DashBoard from "./pages/DashBoard";
 import Feed from "./components/Feed";
@@ -26,7 +26,7 @@ function App() {
             <Route exact path="/" component={DashBoard} />
             <Route exact path="/dashboard" component={DashBoard} />
             <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/signup" component={Signup} />
           </Switch>
         </AuthProvider>
       </Router>
