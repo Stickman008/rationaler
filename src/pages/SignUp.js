@@ -1,31 +1,30 @@
 import React, { useState, useRef } from "react";
-import { useHistory } from "react-router";
-import { useAuth } from "../components/AuthContext";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import { Paper, TextField, Button, Typography } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import "./Signup.css";
 
-function SignUp() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const { signup } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      setError("Passwords do not match!");
+      setError("Passwords do not match");
       return;
     }
 
     try {
       setError("");
       setLoading(true);
-      console.log(emailRef.current.value, passwordRef.current.value);
       await signup(emailRef.current.value, passwordRef.current.value);
       history.push("/login");
     } catch {
@@ -34,16 +33,12 @@ function SignUp() {
     setLoading(false);
   };
 
-  // if (currentUser) {
-  //   return <Link to="./dashboard" />;
-  // }
-
   return (
     <div className="signup">
       <Paper elevation={10} className="signup__paper">
         <Typography variant="h4">Sign Up</Typography>
         {error && <Alert severity="error">{error}</Alert>}
-        <form onSubmit={handleSubmit} className="main__signup__form">
+        <form onSubmit={handleSubmit} className="signup__form">
           <TextField
             label="Email"
             placeholder="Enter email"
@@ -78,9 +73,13 @@ function SignUp() {
             Sign up
           </Button>
         </form>
+        <Typography variant="h5">Already have an account?</Typography>
+        <Button component={Link} to="/login" variant="outlined" color="primary" fullWidth>
+          login
+        </Button>
       </Paper>
     </div>
   );
 }
 
-export default SignUp;
+export default Signup;

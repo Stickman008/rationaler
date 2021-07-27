@@ -2,16 +2,14 @@ import React, { useState, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { Button, Paper, TextField, Typography } from "@material-ui/core";
-import Alert from '@material-ui/lab/Alert';
+import Alert from "@material-ui/lab/Alert";
 import "./Login.css";
 
-function Login() {
+function ForgotPassword() {
+  const emailRef = useRef();
+  const { resetPassword } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const { login } = useAuth();
-  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,10 +17,9 @@ function Login() {
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/")
+      await resetPassword(emailRef.current.value);
     } catch (error) {
-      setError("Login error");
+      setError("Failed to reset password");
     }
     setLoading(false);
   };
@@ -30,23 +27,15 @@ function Login() {
   return (
     <div className="login">
       <Paper elevation={10} className="login__paper">
-        <Typography variant="h4">Login</Typography>
+        <Typography variant="h4">Password Reset</Typography>
         {error && <Alert severity="error">{error}</Alert>}
         <form className="login__form" onSubmit={handleSubmit}>
           <TextField
             label="Email"
             placeholder="Enter email"
-            fullWidth
-            required
             inputRef={emailRef}
-          />
-          <TextField
-            label="Password"
-            placeholder="Enter password"
-            type="password"
-            fullWidth
             required
-            inputRef={passwordRef}
+            fullWidth
           />
           <Button
             disabled={loading}
@@ -55,19 +44,15 @@ function Login() {
             color="primary"
             fullWidth
           >
-            Login
+            Reset Password
           </Button>
         </form>
-        <Typography variant="h5">Need an account?</Typography>
-        <Button component={Link} to="/signup" variant="outlined" color="primary" fullWidth>
-          Sign up
-        </Button>
-        <Button component={Link} to="/forgot-password" color="primary" fullWidth>
-          Forgot Password
+        <Button component={Link} to="/login" color="primary" fullWidth>
+          login
         </Button>
       </Paper>
     </div>
   );
 }
 
-export default Login;
+export default ForgotPassword;

@@ -1,4 +1,6 @@
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import { Avatar, Button, TextField} from "@material-ui/core";
 import PollIcon from "@material-ui/icons/Poll";
 import Search from "@material-ui/icons/Search";
@@ -7,6 +9,18 @@ import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer";
 import "./Header.css";
 
 function Header() {
+  const { logout } = useAuth();
+  const history = useHistory();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      history.push("/login");
+    } catch {
+      console.log("error");
+    }
+  }
+
   return (
     <div className="header">
       {/* header left */}
@@ -34,7 +48,7 @@ function Header() {
           <Avatar className="header__avatar" />
           <h3>NAME</h3>
         </div>
-        <Button variant="contained" color="secondary">Logout</Button>
+        <Button onClick={handleLogout} variant="contained" color="secondary">Logout</Button>
       </div>
     </div>
   );

@@ -1,7 +1,6 @@
 .signup {
   overflow: hidden;
-  position: relative;
-  margin: -10px;
+  margin: 10vh 0px;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -21,14 +20,14 @@
   user-select: none;
 }
 
-.signup__paper > Typography {
+.signup__form > Typography {
   
 }
 
-.main__signup__form {
+.signup__form {
   margin-top: 10px;
 }
 
-.main__signup__form > Button {
+.signup__form > Button {
   margin-top: 20px;
 }

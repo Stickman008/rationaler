@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { useHistory } from "react-router";
-import { useAuth } from "../components/AuthContext";
+import React from "react";
+import { Link, useHistory } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import Header from "../components/Header";
 import "./DashBoard.css";
 
@@ -17,14 +17,16 @@ function DashBoard() {
       await logout();
       history.push("/login");
     } catch {
-      console.log("error");
+      console.log("Logout Error");
     }
   }
 
   return (
     <div>
-      {/* {erroJSON.stringify(currentUser.email)} */}
+      <Header />
+      {currentUser && currentUser.email}
       <h1>You are logged in.</h1>
+      <Link to="update-profile"></Link>
       <button onClick={handleLogout}>Logout</button>
     </div>
   );
