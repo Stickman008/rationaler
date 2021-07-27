@@ -1,48 +1,44 @@
-import React, { useState, useContext } from "react";
-import { Redirect, Link } from "react-router-dom";
+import React, { useState, useRef } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../components/Auth";
-import firebaseConfig from "../config";
-import { Button, Paper, TextField } from "@material-ui/core";
+import { Button, Paper, TextField, Typography } from "@material-ui/core";
+import Alert from '@material-ui/lab/Alert';
 import "./Login.css";
 
-function LogIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading]  = useState(false);
+function Login() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login } = useAuth();
+  const history = useHistory();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
+      setError("");
       setLoading(true);
-      firebaseConfig
-        .auth()
-        .signInWithEmailAndPassword(email, password);
-      console.log("login complete");
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push("/")
     } catch (error) {
-      alert(error);
+      setError("Login error");
     }
     setLoading(false);
   };
 
-  const currentUser = useAuth;
-  if (currentUser) {
-    return <Redirect to="./dashboard" />;
-  }
-
   return (
     <div className="main__login">
       <Paper elevation={10} className="main__login__paper">
+        <Typography variant="h4">Login</Typography>
+        {error && <Alert severity="error">{error}</Alert>}
         <form className="main__login__form" onSubmit={handleSubmit}>
-          <h1>Sign in</h1>
           <TextField
             label="Email"
             placeholder="Enter email"
             fullWidth
             required
-            onInput={(e) => {
-              setEmail(e.target.value);
-            }}
+            inputRef={emailRef}
           />
           <TextField
             label="Password"
@@ -50,16 +46,20 @@ function LogIn() {
             type="password"
             fullWidth
             required
-            onInput={(e) => {
-              setPassword(e.target.value);
-            }}
+            inputRef={passwordRef}
           />
-          <Button disabled={loading} type="submit" variant="contained" color="primary" fullWidth>
-            Sign in
+          <Button
+            disabled={loading}
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+          >
+            Login
           </Button>
         </form>
         <h2>Need Account?</h2>
-        <Button type="button" variant="outlined" color="primary" fullWidth>
+        <Button component={Link} to="/singup" variant="outlined" color="primary" fullWidth>
           Sign up
         </Button>
       </Paper>
@@ -67,4 +67,4 @@ function LogIn() {
   );
 }
 
-export default LogIn;
+export default Login;

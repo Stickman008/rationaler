@@ -1,18 +1,18 @@
 import React, { useState, useRef } from "react";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router";
 import { useAuth } from "../components/Auth";
 import { Paper, TextField, Button, Typography} from "@material-ui/core";
 import Alert from '@material-ui/lab/Alert';
 import "./SignUp.css";
 
 function SignUp() {
-  const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const { signup } = useAuth();
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +25,9 @@ function SignUp() {
     try {
       setError("");
       setLoading(true)
+      console.log(emailRef.current.value, passwordRef.current.value);
       await signup(emailRef.current.value, passwordRef.current.value);
+      history.push("/login");
     } catch {
       setError("Sign up error");
     }
@@ -33,14 +35,13 @@ function SignUp() {
   };
 
   // if (currentUser) {
-  //   return <Redirect to="./dashboard" />;
+  //   return <Link to="./dashboard" />;
   // }
 
   return (
     <div className="signup">
       <Paper elevation={10} className="signup__paper">
         <Typography variant="h4">Sign Up</Typography>
-        {/* {JSON.stringify(currentUser)} */}
         {error && <Alert severity="error">{error}</Alert>}
         <form onSubmit={handleSubmit} className="main__signup__form">
           <TextField

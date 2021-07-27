@@ -16,20 +16,20 @@ function App() {
       {/* <Header />
       <Feed /> */}
       {/* <Login /> */}
-      <AuthProvider>
-        <SignUp />
-      </AuthProvider>
-      {/* <h1>App js</h1> */}
       {/* <AuthProvider>
-        <Router>
+        <SignUp />
+      </AuthProvider> */}
+      {/* <h1>App js</h1> */}
+      <Router>
+        <AuthProvider>
           <Switch>
             <Route exact path="/" component={DashBoard} />
             <Route exact path="/dashboard" component={DashBoard} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />
           </Switch>
-        </Router>
-      </AuthProvider> */}
+        </AuthProvider>
+      </Router>
     </div>
   );
 }
