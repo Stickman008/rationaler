@@ -16,12 +16,14 @@ function App() {
       {/* <Header />
       <Feed /> */}
       {/* <Login /> */}
-      {/* <SignUp /> */}
+      <AuthProvider>
+        <SignUp />
+      </AuthProvider>
       {/* <h1>App js</h1> */}
       {/* <AuthProvider>
         <Router>
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={DashBoard} />
             <Route exact path="/dashboard" component={DashBoard} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={SignUp} />

@@ -1,10 +1,10 @@
 import React, {useContext} from 'react'
 import {Link} from "react-router-dom";
-import {AuthContext} from "../components/Auth"
+import {useAuth} from "../components/Auth"
 import Header from '../components/Header';
 
 function Home() {
-    const {currentUser} = useContext(AuthContext);
+    const {currentUser} = useAuth;
 
     return (
         <div>

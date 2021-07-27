@@ -1,28 +1,33 @@
-.main__signup {
+.signup {
   overflow: hidden;
-  background-color: ghostwhite;
   position: relative;
   margin: -10px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
-.main__signup__paper {
+.signup__paper {
   text-align: center;
   padding: 20px;
   margin: 20px auto;
   width: 400px;
-  height: 250px;
 }
 
-.main__signup__paper > h1 {
+.signup__paper{
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-/* .main__signup__form {
+.signup__paper > Typography {
+  
+}
 
-} */
+.main__signup__form {
+  margin-top: 10px;
+}
 
 .main__signup__form > Button {
   margin-top: 20px;

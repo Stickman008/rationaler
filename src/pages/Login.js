@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { Redirect } from "react-router-dom";
-import { AuthContext } from "../components/Auth";
+import { Redirect, Link } from "react-router-dom";
+import { useAuth } from "../components/Auth";
 import firebaseConfig from "../config";
 import { Button, Paper, TextField } from "@material-ui/core";
 import "./Login.css";
@@ -8,11 +8,13 @@ import "./Login.css";
 function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading]  = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     try {
+      setLoading(true);
       firebaseConfig
         .auth()
         .signInWithEmailAndPassword(email, password);
@@ -20,9 +22,10 @@ function LogIn() {
     } catch (error) {
       alert(error);
     }
+    setLoading(false);
   };
 
-  const { currentUser } = useContext(AuthContext);
+  const currentUser = useAuth;
   if (currentUser) {
     return <Redirect to="./dashboard" />;
   }
@@ -51,10 +54,11 @@ function LogIn() {
               setPassword(e.target.value);
             }}
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth>
+          <Button disabled={loading} type="submit" variant="contained" color="primary" fullWidth>
             Sign in
           </Button>
         </form>
+        <h2>Need Account?</h2>
         <Button type="button" variant="outlined" color="primary" fullWidth>
           Sign up
         </Button>

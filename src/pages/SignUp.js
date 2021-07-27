@@ -1,69 +1,78 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Redirect } from "react-router-dom";
-import firebaseConfig from "../config";
-import { Paper, TextField, Button } from "@material-ui/core";
+import { useAuth } from "../components/Auth";
+import { Paper, TextField, Button, Typography} from "@material-ui/core";
+import Alert from '@material-ui/lab/Alert';
 import "./SignUp.css";
 
 function SignUp() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  const { signup } = useAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(email, password);
-    if (password !== passwordConfirm) {
-      alert("password is not equal");
-    } else {
-      try {
-        firebaseConfig.auth().createUserWithEmailAndPassword(email, password);
-        setCurrentUser(true);
-      } catch (error) {
-        alert(error);
-      }
+    
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      setError("Passwords do not match!");
+      return;
     }
+
+    try {
+      setError("");
+      setLoading(true)
+      await signup(emailRef.current.value, passwordRef.current.value);
+    } catch {
+      setError("Sign up error");
+    }
+    setLoading(false);
   };
 
-  if (currentUser) {
-    return <Redirect to="./dashboard" />;
-  }
+  // if (currentUser) {
+  //   return <Redirect to="./dashboard" />;
+  // }
 
   return (
-    <div className="main__signup">
-      <Paper elevation={10} className="main__signup__paper">
-        <h1>Sign Up</h1>
+    <div className="signup">
+      <Paper elevation={10} className="signup__paper">
+        <Typography variant="h4">Sign Up</Typography>
+        {/* {JSON.stringify(currentUser)} */}
+        {error && <Alert severity="error">{error}</Alert>}
         <form onSubmit={handleSubmit} className="main__signup__form">
           <TextField
             label="Email"
             placeholder="Enter email"
+            inputRef={emailRef}
             fullWidth
             required
-            onInput={(e) => {
-              setEmail(e.target.value);
-            }}
           />
           <TextField
             label="Password"
             placeholder="Enter password"
             type="password"
+            inputRef={passwordRef}
             fullWidth
             required
-            onInput={(e) => {
-              setPassword(e.target.value);
-            }}
           />
           <TextField
-            label="Password"
-            placeholder="Enter password"
+            label="Confirm Password"
+            placeholder="Enter confirm password"
             type="password"
+            inputRef={passwordConfirmRef}
             fullWidth
             required
-            onInput={(e) => {
-              setPasswordConfirm(e.target.value);
-            }}
           />
-          <Button type="submit" variant="contained" color="primary" fullWidth>
+          <Button
+            disabled={loading}
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+          >
             Sign up
           </Button>
         </form>

@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { Redirect } from "react-router-dom";
-import { AuthContext } from "../components/Auth";
+import { useAuth } from "../components/Auth";
 import Header from "../components/Header";
 import firebaseConfig from "../config";
 // import "./Dashboard.css";
 
 function DashBoard() {
-  const {currentUser} = useContext(AuthContext);
+  const {currentUser} = useAuth;
 
   if(!currentUser) {
     return <Redirect to="/login" />

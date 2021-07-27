@@ -1,27 +1,41 @@
-import React, { useState, useEffect } from 'react'
-import firebaseConfig from '../config'
+import React, { useState, useEffect, useContext } from "react";
+import firebaseConfig, { auth } from "../config";
 
-export const AuthContext = React.createContext();
+const AuthContext = React.createContext();
 
-export const AuthProvider = ({children}) => {
-    const [loading, setLoading] = useState(true);
-    const [currentUser, setCurrentUser] = useState(null);
-
-    useEffect(() => {
-        // console.log(firebaseConfig.auth());
-        firebaseConfig.auth().onAuthStateChanged((user)=> {
-            setCurrentUser(user);
-            setLoading(false);
-        })
-    }, []);
-
-    if(loading) {
-        return <p>Loading...</p>
-    }
-
-    return (
-        <AuthContext.Provider value={{currentUser}}>
-            {children}
-        </AuthContext.Provider>
-    )
+export function useAuth() {
+  return useContext(AuthContext);
 }
+
+export const AuthProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  function signup(email, password) {
+    return auth.createUserWithEmailAndPassword(email, password);
+  }
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+      setLoading(false);
+    });
+
+    return unsubscribe;
+  }, []);
+
+  const value = {
+    currentUser,
+    signup,
+  };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <AuthContext.Provider value={value}>
+      {!loading && children}
+    </AuthContext.Provider>
+  );
+};
