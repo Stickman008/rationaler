@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../components/Auth";
+import { useAuth } from "../components/AuthContext";
 import { Button, Paper, TextField, Typography } from "@material-ui/core";
 import Alert from '@material-ui/lab/Alert';
 import "./Login.css";

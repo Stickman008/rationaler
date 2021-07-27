@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router";
-import { useAuth } from "../components/Auth";
+import { useAuth } from "../components/AuthContext";
 import Header from "../components/Header";
 import "./DashBoard.css";
 

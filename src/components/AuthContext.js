@@ -35,10 +35,12 @@ export const AuthProvider = ({ children }) => {
   const value = {
     currentUser,
     signup,
+    login,
+    logout,
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <h1>Loading...</h1>;
   }
 
   return (

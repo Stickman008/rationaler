@@ -1,7 +1,6 @@
 import React, {useContext} from 'react'
 import {Link} from "react-router-dom";
-import {useAuth} from "../components/Auth"
-import Header from '../components/Header';
+import {useAuth} from "../components/AuthContext"
 
 function Home() {
     const {currentUser} = useAuth;

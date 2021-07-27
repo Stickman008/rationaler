@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import { useHistory } from "react-router";
-import { useAuth } from "../components/Auth";
-import { Paper, TextField, Button, Typography} from "@material-ui/core";
-import Alert from '@material-ui/lab/Alert';
+import { useAuth } from "../components/AuthContext";
+import { Paper, TextField, Button, Typography } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 import "./Signup.css";
 
 function SignUp() {
@@ -16,7 +16,7 @@ function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       setError("Passwords do not match!");
       return;
@@ -24,7 +24,7 @@ function SignUp() {
 
     try {
       setError("");
-      setLoading(true)
+      setLoading(true);
       console.log(emailRef.current.value, passwordRef.current.value);
       await signup(emailRef.current.value, passwordRef.current.value);
       history.push("/login");
@@ -49,6 +49,7 @@ function SignUp() {
             placeholder="Enter email"
             inputRef={emailRef}
             fullWidth
+            autoFocus
             required
           />
           <TextField
