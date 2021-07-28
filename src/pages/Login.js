@@ -13,18 +13,19 @@ function Login() {
   const { login } = useAuth();
   const history = useHistory();
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     try {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
+      setLoading(false);
       history.push("/")
     } catch (error) {
       setError("Login error");
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

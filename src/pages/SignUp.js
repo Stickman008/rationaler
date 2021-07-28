@@ -14,7 +14,7 @@ function Signup() {
   const [error, setError] = useState("");
   const history = useHistory();
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
@@ -26,11 +26,12 @@ function Signup() {
       setError("");
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
+      setLoading(false);
       history.push("/login");
     } catch {
       setError("Sign up error");
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (

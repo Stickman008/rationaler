@@ -55,7 +55,7 @@ function Header() {
             to="update-profile"
             className="header__avatar"
           />
-          <Typography component="h3" variant="paragraph">{currentUser.email}</Typography>
+          <Typography component="h3" variant="body1">{currentUser.email}</Typography>
         </div>
         <Button onClick={handleLogout} variant="contained" color="secondary">
           Logout

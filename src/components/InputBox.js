@@ -1,7 +1,8 @@
 import React, {useState} from "react";
-import { Button, Paper, TextField, IconButton } from "@material-ui/core";
+import { Button, Paper, TextField, IconButton, Typography } from "@material-ui/core";
 import ImageIcon from "@material-ui/icons/Image";
 import "./InputBox.css";
+import { green } from "@material-ui/core/colors";
 
 function showImage(file) {
   let image = null;
@@ -56,6 +57,7 @@ function InputBox() {
             ></TextField>
           </div>
           <div className="inputBox__form__bottom">
+            <Typography variant="caption" component="caption" >Note: Be carefull before you post</Typography>
             <Button type="submit" variant="contained" color="primary">
               Post
             </Button>
