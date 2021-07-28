@@ -4,6 +4,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 // import Header from "./components/Header";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import UpdateProfile from "./pages/UpdateProfile";
 // import Home from "./pages/Home";
 import DashBoard from "./pages/DashBoard";
 // import Feed from "./components/Feed";
@@ -18,6 +19,7 @@ function App() {
         <AuthProvider>
           <Switch>
             <PrivateRoute exact path="/" component={DashBoard} />
+            <PrivateRoute path="/update-profile" component={UpdateProfile} />
             {/* <Route exact path="/dashboard" component={DashBoard} /> */}
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />

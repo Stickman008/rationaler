@@ -1,4 +1,4 @@
-.signup {
+.update_profile {
   overflow: hidden;
   margin: 10vh 0px;
   height: 100%;
@@ -6,7 +6,7 @@
   overflow: hidden;
 }
 
-.signup__paper {
+.update_profile__paper {
   text-align: center;
   padding: 20px;
   margin: 20px auto;
@@ -19,19 +19,18 @@
   user-select: none;
 }
 
-.signup__paper > h4 {
-  margin-bottom: 10px;
-}
-
-.signup__paper > h5 {
-  margin-bottom: 10px;
-}
-
-.signup__form {
+.update_profile__form {
   margin-top: 10px;
 }
+.update_profile__paper > h4 {
+  margin-bottom: 10px;
+}
 
-.signup__form > Button {
+.update_profile__paper > h5 {
+  margin-bottom: 10px;
+}
+
+.update_profile__form > Button {
   margin-top: 20px;
   margin-bottom: 20px;
 }

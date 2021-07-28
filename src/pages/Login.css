@@ -1,7 +1,9 @@
-.longin {
+.login {
   overflow: hidden;
-  position: relative;
-  margin: -10px;
+  margin: 10vh 0px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 .login__paper {
@@ -17,16 +19,18 @@
   user-select: none;
 }
 
-.login__paper > h1 {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+.login__paper > h4 {
+  margin-bottom: 10px;
 }
 
-/* .main__signup__form {
+.login__paper > h5 {
+  margin-bottom: 10px;
+}
 
-} */
+.login__form {
+  margin-top: 10px;
+
+}
 
 .login__form > Button {
   margin-top: 20px;

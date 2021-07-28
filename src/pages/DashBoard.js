@@ -26,7 +26,7 @@ function DashBoard() {
       <Header />
       {currentUser && currentUser.email}
       <h1>You are logged in.</h1>
-      <Link to="update-profile"></Link>
+      <Link to="update-profile">Update Profile</Link>
       <button onClick={handleLogout}>Logout</button>
     </div>
   );
