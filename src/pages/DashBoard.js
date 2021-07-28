@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import Header from "../components/Header";
+import Feed from "../components/Feed";
 import "./DashBoard.css";
 
 function DashBoard() {
@@ -24,10 +25,11 @@ function DashBoard() {
   return (
     <div>
       <Header />
-      {currentUser && currentUser.email}
+      <Feed />
+      {/* {currentUser && currentUser.email}
       <h1>You are logged in.</h1>
       <Link to="update-profile">Update Profile</Link>
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={handleLogout}>Logout</button> */}
     </div>
   );
 }

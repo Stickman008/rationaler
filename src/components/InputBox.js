@@ -49,6 +49,8 @@ function InputBox() {
             <TextField
               variant="outlined"
               placeholder="Description"
+              multiline
+              rows={4}
               required
               fullWidth
             ></TextField>
