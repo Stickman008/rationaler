@@ -13,14 +13,14 @@ function DashBoard() {
   //   return <Redirect to="/login" />
   // }
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-      history.push("/login");
-    } catch {
-      console.log("Logout Error");
-    }
-  }
+  // const handleLogout = async () => {
+  //   try {
+  //     await logout();
+  //     history.push("/login");
+  //   } catch {
+  //     console.log("Logout Error");
+  //   }
+  // }
 
   return (
     <div>

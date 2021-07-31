@@ -1,5 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore";
+
 
 const firebaseConfig = firebase.initializeApp({
   // apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -15,5 +17,9 @@ const firebaseConfig = firebase.initializeApp({
 // Initialize Firebase
 // firebase.analytics();
 
+const firestore = firebaseConfig.firestore();
+export const database = {
+  posts: firestore.collection("posts"),
+}
 export const auth = firebaseConfig.auth();
 export default firebaseConfig;
