@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/storage";
 
 
 const firebaseConfig = firebase.initializeApp({
@@ -20,6 +21,8 @@ const firebaseConfig = firebase.initializeApp({
 const firestore = firebaseConfig.firestore();
 export const database = {
   posts: firestore.collection("posts"),
+  getCurrentTimestamp: firebase.firestore.FieldValue.serverTimestamp,
 }
 export const auth = firebaseConfig.auth();
+export const storage = firebase.storage();
 export default firebaseConfig;

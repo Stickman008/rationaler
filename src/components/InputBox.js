@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
-import { database } from "../config";
+import React, { useState } from "react";
+import { database, storage } from "../config";
+import { useAuth } from "../contexts/AuthContext";
 import {
   Button,
   Paper,
@@ -19,24 +20,51 @@ function InputBox() {
   const [uploadImage, setUploadImage] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const { currentUser } = useAuth();
+
+  const handleUploadImage = () => {
+    const uploadTask = storage
+      .ref(`images/${uploadImage.name}`)
+      .put(uploadImage);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {},
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(uploadImage.name)
+          .getDownloadURL()
+          .then((url) => {
+            console.log(url);
+          });
+      }
+    );
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Post");
-
-    database.posts.add({
-      title: title,
-      description: description,
-      postAt: 0,
-    });
+    handleUploadImage();
+    // database.posts.add({
+    //   title: title,
+    //   description: description,
+    //   userId: currentUser.uid,
+    //   postImage: 1,
+    //   postAt: database.getCurrentTimestamp(),
+    // });
 
     setTitle("");
     setDescription("");
   };
 
-  const fileSelectedHandler = (e) => {
-    console.log(e.target.files[0]);
-    setUploadImage(e.target.files[0]);
+  const uploadImageHandler = (e) => {
+    // console.log(e.target.files[0]);
+    if (e.target.files[0]) {
+      setUploadImage(e.target.files[0]);
+    }
   };
 
   return (
@@ -63,7 +91,7 @@ function InputBox() {
               size="medium"
             >
               <ImageIcon style={{ width: 40, height: 40 }} />
-              <input type="file" onChange={fileSelectedHandler} hidden />
+              <input type="file" onChange={uploadImageHandler} hidden />
             </IconButton>
           </div>
           {uploadImage ? showImage(uploadImage) : null}
